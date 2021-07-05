@@ -8,7 +8,7 @@ function initPassport(passport, getUserById) {
     new GitHubStrategy({ 
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/login/auth/github/callback"
+        callbackURL: "https://gitban.herokuapp.com/login/auth/github/callback"
       }, 
       async (accessToken, refreshToken, profile, done) => {
         const user = await User.findOneAndDelete({ ghid: profile.id });
